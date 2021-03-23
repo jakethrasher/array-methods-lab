@@ -1,10 +1,8 @@
-const map = (array,callback)=> {
-    const newArray = []
-
+const mapIt = (array,callback)=> {
+    let newArray = [];
     for(let i = 0; i < array.length; i++){
-        newArray.push(callback(array[i]));
+        newArray[i] = callback(array[i]);
     }
-    
-  return newArray;
+    return newArray
 }
-module.exports = map;
+module.exports = mapIt;

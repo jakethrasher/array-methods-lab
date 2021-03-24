@@ -1,16 +1,23 @@
 const reduceFunction = require('./reduceFunction');
 
-describe('', ()=>{
-    const numbersArray= [1,2,3,4,5,6,7,8,9,10]
-    it('', ()=>{
+describe('reduceFunction', ()=>{
+    const numbersArray= [1,2,3,4]
+    it('should take in an array and a callback and return the sum of all the numbers', ()=>{
+        
+        const sumTheNumbers = (accumulator, item)=>{
+            return accumulator += item;
+        }
+
+        expect(reduceFunction(numbersArray, sumTheNumbers)).toEqual(10)
+    })
+
+    it('should take the optional initialValue parameter as the initial value for the accumulator', ()=>{
 
         const sumTheNumbers = (accumulator, item)=>{
-
-            const reduction = accumulator + item;
-
-            return reduction
+            return accumulator += item;
         }
-        
-        expect(reduceFunction(numbersArray, sumTheNumbers)).toEqual(55)
+        const initialValue = 10;
+
+        expect(reduceFunction(numbersArray, sumTheNumbers,initialValue)).toEqual(20)
     })
 });

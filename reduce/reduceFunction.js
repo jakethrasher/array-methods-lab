@@ -1,13 +1,19 @@
 const reduceFunction = (array, callback, initialValue)=>{
-    let total = 0;
+    let accumulator;
+    let i;
+
     if(initialValue){
-        total = initialValue;
+        accumulator = initialValue;
+        i = 0
+    } else {
+        accumulator = array[0];
+        i = 1
     }
-    for(let i = 0; i < array.length; i++){
-        total = callback(total, array[i]);
+    for(i; i < array.length; i++){
+        accumulator = callback(accumulator, array[i]);
     }
 
-    return total;
+    return accumulator;
 };
 module.exports = reduceFunction;
 
